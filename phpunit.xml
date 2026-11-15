@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+    </source>
+
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="base64:/AVykRSAkl/hgSlQwNHuzwzJOQZSi2kW9C5OBRoQGas="/>
+        <env name="APP_DEBUG" value="false"/>
+        <env name="APP_URL" value="http://localhost"/>
+
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+
+        <env name="CACHE_STORE" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+
+        <!-- Deterministic security configuration under test. -->
+        <env name="CORS_ALLOWED_ORIGINS" value="http://localhost:5173"/>
+        <env name="API_TOKEN_LIFETIME" value="120"/>
+        <env name="API_TOKEN_ABSOLUTE_LIFETIME" value="720"/>
+        <env name="API_TOKEN_ACTIVITY_TOUCH_INTERVAL" value="60"/>
+    </php>
+</phpunit>
